@@ -99,9 +99,9 @@ This vulnerability requires no authentication, no user interaction, and no speci
 ##### **Evidence**
 
 ###### <b>Step 1 - Service Identification</b>:
-[[Kioptrix/Screenshots/nmap_full_scan.png|Initial port scanning]] confirmed the presence of a NetBIOS/SMB service on TCP port 139. Subsequent enumeration using the Metasploit SMB version scanner (with verbose output enabled) identified the running Samba version:
+![Initial scanning](/Kioptrix/Screenshots/nmap_full_scan.png) Initial port scanning confirmed the presence of a NetBIOS/SMB service on TCP port 139. Subsequent enumeration using the Metasploit SMB version scanner (with verbose output enabled) identified the running Samba version:
 
-![[smb_enum.png]]
+![](/Kioptrix/Screenshots/smb_enum.png)
 ###### **Step 2 - Exploitation**:
 The Metasploit trans2open exploit module was configured with a non-staged 32-bit reverse-shell as a payload (payload/linux/x86/shell_reverse) and executed against the identified target:
 ![[Exploit.png]]
