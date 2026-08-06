@@ -99,7 +99,7 @@ This vulnerability requires no authentication, no user interaction, and no speci
 ##### **Evidence**
 
 ###### <b>Step 1 - Service Identification</b>:
-[[nmap_full_scan.png|Initial port scanning]] confirmed the presence of a NetBIOS/SMB service on TCP port 139. Subsequent enumeration using the Metasploit SMB version scanner (with verbose output enabled) identified the running Samba version:
+[[Kioptrix/Screenshots/nmap_full_scan.png|Initial port scanning]] confirmed the presence of a NetBIOS/SMB service on TCP port 139. Subsequent enumeration using the Metasploit SMB version scanner (with verbose output enabled) identified the running Samba version:
 
 ![[smb_enum.png]]
 ###### **Step 2 - Exploitation**:
@@ -145,7 +145,7 @@ The target system is running a Linux kernel released in September 2001 - over tw
 
 Beyond the Samba vulnerability exploited in F-01, the kernel version (2.4.7) is known to be vulnerable to numerous local privilege escalation exploits, meaning that even a low-privileged user account on this system would likely be able to escalate to root through kernel-level vulnerabilities independently of the Samba path.
 ##### Evidence
-![[os-kernel-proof.png|700]]
+![[os-kernel-proof.png]]
 ##### Impact
 - Local account credentials are fully exposed to an attacker with root access
 - Password reuse across systems could enable lateral movement beyond this target
