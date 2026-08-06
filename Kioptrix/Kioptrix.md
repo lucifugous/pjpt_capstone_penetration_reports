@@ -224,7 +224,8 @@ Affected Ports:     TCP 80 (HTTP)
 
 ##### Description
 The default Apache installation test page is publicly accessible at the root of the HTTP services. This confirms the server is running a default, unconfigured Apache installation. Additionally, web content discovered revealed accessible files including a `test.php` file, suggesting unintended context exposure.
-##### Evidence![[default_page.png]]
+##### Evidence
+![](/Kioptrix/Screenshots/default_page.png)
 
 ![](/Kioptrix/Screenshots/test.php_page.png)
 ##### Impact
