@@ -104,13 +104,13 @@ This vulnerability requires no authentication, no user interaction, and no speci
 ![](/Kioptrix/Screenshots/smb_enum.png)
 ###### **Step 2 - Exploitation**:
 The Metasploit trans2open exploit module was configured with a non-staged 32-bit reverse-shell as a payload (payload/linux/x86/shell_reverse) and executed against the identified target:
-![[Exploit.png]]
+![](/Kioptrix/Screenshots/Exploit.png)
 ###### **Step 3 - Root Access Confirmed**
 Exploitation was successful, returning a root-level shell on the target system, which can be confirmed from an image in [[#**Step 2 - Exploitation**]] section.
 
 ##### **Proof of Exploitation - Password Modification**
 To demonstrate complete administrative control over the system, the password for the local user account `john` was modified as a proof-of-concept:
-![[john_owned.png|700]]
+![](/Kioptrix/Screenshots/john_owned.png)
 > Note: Password modification was performed solely as a proof-of-concept demonstrate of post-exploitation capability. In a production engagement, credential modification would only be performed with explicit written client authorization. The account was restored to its original state following the test.
 ##### Impact
 Successful exploitation of this vulnerability results in:
@@ -145,7 +145,7 @@ The target system is running a Linux kernel released in September 2001 - over tw
 
 Beyond the Samba vulnerability exploited in F-01, the kernel version (2.4.7) is known to be vulnerable to numerous local privilege escalation exploits, meaning that even a low-privileged user account on this system would likely be able to escalate to root through kernel-level vulnerabilities independently of the Samba path.
 ##### Evidence
-![[os-kernel-proof.png]]
+![](/Kioptrix/Screenshots/os-kernel-proof.png)
 ##### Impact
 - Local account credentials are fully exposed to an attacker with root access
 - Password reuse across systems could enable lateral movement beyond this target
@@ -173,7 +173,7 @@ This information materially reduces an attacker's reconnaissance burden, allowin
 
 ##### Evidence
 
-![[404_page.png]]
+![](/Kioptrix/Screenshots/404_page.png)
 ##### Impact
 Version disclosure enabled direct identification of:
 - Apache 1.3.20 - multiple known remote vulnerabilities
@@ -201,7 +201,7 @@ Following successful exploitation and root access, a local user account (john) w
 In a real-world scenario, an attacker with root access would extract `/etc/shadow` and submit all password hashes for offline cracking, potentially recovering credentials reused across other systems in the environment.
 ##### Evidence
 
-![[user_john_pwned.png]]
+![](/Kioptrix/Screenshots/user_john_pwned.png)
 ##### Impact
 - Local account credentials are fully exposed to an attacker with root access
 - Password reuse across systems could enable lateral movement beyond this target
@@ -226,7 +226,7 @@ Affected Ports:     TCP 80 (HTTP)
 The default Apache installation test page is publicly accessible at the root of the HTTP services. This confirms the server is running a default, unconfigured Apache installation. Additionally, web content discovered revealed accessible files including a `test.php` file, suggesting unintended context exposure.
 ##### Evidence![[default_page.png]]
 
-![[test.php_page.png]]
+![](/Kioptrix/Screenshots/test.php_page.png)
 ##### Impact
 - Confirms unconfigured/default installation to any visitor
 - Discloses operating system (Red Hat Linux)
